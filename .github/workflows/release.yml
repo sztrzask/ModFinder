@@ -72,9 +72,9 @@ jobs:
           type: 'zip'
           filename: 'ModFinder.zip'
           exclusions: '*.git* /*node_modules/* .editorconfig'
-          path: ModFinderClient/bin/Release/net5.0-windows
+          directory: './ModFinderClient/bin/Release/net5.0-windows'
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "ModFinder.zip"
+          artifacts: "ModFinderClient/bin/Release/net5.0-windows/ModFinder.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
