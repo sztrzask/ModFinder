@@ -77,4 +77,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "./output/ModFinder.zip"
+          artifactErrorsFailBuild: true
           token: ${{ secrets.GITHUB_TOKEN }}
