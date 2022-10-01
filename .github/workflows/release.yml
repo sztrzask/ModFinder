@@ -72,7 +72,7 @@ jobs:
           type: 'zip'
           filename: 'ModFinder.zip'
           exclusions: '*.git* /*node_modules/* .editorconfig'
-          directory: './output/ModFinder'
+          directory: './output'
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
