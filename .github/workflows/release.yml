@@ -63,7 +63,7 @@ jobs:
         run: |
           $appversion = "${{ github.ref_name }}".substring(1)
           echo $appversion
-          dotnet build --configuration Release --no-restore /p:Version=$appversion
+          dotnet build ./ModFinderClient --configuration Release -o ./output/ModFinder --no-restore /p:Version=$appversion
       - name: list
         run: ls -r
       - name: Zip Release
@@ -72,9 +72,9 @@ jobs:
           type: 'zip'
           filename: 'ModFinder.zip'
           exclusions: '*.git* /*node_modules/* .editorconfig'
-          directory: './ModFinderClient/bin/Release/net5.0-windows'
+          directory: './output/ModFinder'
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "ModFinderClient/bin/Release/net5.0-windows/ModFinder.zip"
+          artifacts: "./output/ModFinder/ModFinder.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
